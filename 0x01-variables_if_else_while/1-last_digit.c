@@ -28,4 +28,8 @@ if (last_digit > 5)
 printf("Last digit of %i is %i and is greater than 5\n", n, last_digit);
 }
 return (0);
+
 }
+
+
+
