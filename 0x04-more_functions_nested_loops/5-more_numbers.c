@@ -1,19 +1,24 @@
 #include "main.h"
 /**
- * print_most_numbers - prints the numbers interleaved
- *
- * Return: numbers
+ * more_numbers - prints the range 0-14 ten times.
+ * Return: nothing.
  */
-void print_most_numbers(void)
+void more_numbers(void)
 {
-int numb;
+int i, j;
 
-for (numb = 48 ; numb <= 57 ; numb++)
+i = j = 0;
+while (i < 10)
 {
-if (numb != 50 && numb != 52)
+while (j <= 14)
 {
-_putchar(numb);
-}
+if (j >= 10)
+_putchar(j / 10 + '0');
+_putchar(j % 10 + '0');
+++j;
 }
 _putchar('\n');
+j = 0;
+i++;
+}
 }
