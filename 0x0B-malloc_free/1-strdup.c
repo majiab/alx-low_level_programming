@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 /**
  * _strlen - give the length of a string
  * @s: the string
@@ -13,7 +13,7 @@ for (i = 0 ; s[i] != '\0' ; i++)
 		;
 return (i);
 }
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
 /**
@@ -30,24 +30,24 @@ char *_strdup(char *str)
 int i;
 char *copy;
 
-if (str == '\0')
+if (str == 0)
 {
 return ('\0');
 }
 i = _strlen(str);
 copy = malloc(sizeof(char) * i + 1);
-if (copy == '\0')
+if (copy == 0)
 {
 return ('\0');
 }
 else
 {
-for (i = 0 ; str[i] != '\0' ; i++)
+for (i = 0 ; str[i] != 0 ; i++)
 {
 copy[i] = str[i];
 }
 }
-copy[i] = '\0';
+copy[i] = 0;
 return (copy);
 
 }
