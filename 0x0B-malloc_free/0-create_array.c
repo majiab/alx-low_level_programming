@@ -27,7 +27,7 @@ return (0);
 }
 else
 {
-while (i < size)s
+while (i < size)
 {
 array[i] = c;
 i++;
