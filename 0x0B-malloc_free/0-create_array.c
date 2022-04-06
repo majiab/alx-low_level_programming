@@ -21,13 +21,13 @@ return ('\0');
 else
 {
 array = malloc(sizeof(char) * size);
-if (array == '\0')
+if (array == 0)
 {
-return ('\0');
+return (0);
 }
 else
 {
-while (i < size)
+while (i < size)s
 {
 array[i] = c;
 i++;
