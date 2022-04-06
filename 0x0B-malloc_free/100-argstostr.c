@@ -1,88 +1,85 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
+
+char *_strcat(char *dest, char *src);
 
 /**
- * number - function to calculate number of words
- * @str: string being passed to check for words
+ * argstostr - concatenates all the arguments
+ * @av: the content
+ * @ac: the size of the content
  *
- * Return: number of words
+ * Return: a pointer to a new string
  */
-int number(char *str)
+char *argstostr(int ac, char **av)
 {
-int a, num = 0;
+char *new, *salt;
+int i, j, k;
 
-for (a = 0; str[a] != '\0'; a++)
+if (ac == 0 || av == NULL)
 {
-if (*str == ' ')
-str++;
+return (NULL);
+}
 else
 {
-for (; str[a] != ' ' && str[a] != '\0'; a++)
-str++;
-num++;
-}
-}
-return (num);
-}
-/**
- * free_everything - frees the memory
- * @string: pointer values being passed for freeing
- * @i: counter
- */
-void free_everything(char **string, int i)
+for (i = 0, k = 0 ; i < ac ; i++, k++)
 {
-for (; i > 0;)
-free(string[--i]);
-free(string);
+for (j = 0 ; av[i][j] != '\0' ; j++, k++)
+{
+}
+}
+new = malloc(sizeof(char) * (k + 1));
+salt = "\n";
+for (i = 0 ; i < ac ; i++)
+{
+new = _strcat(new, av[i]);
+if (new == NULL)
+{
+return (NULL);
+}
+if (i + 1 < ac)
+{
+new = _strcat(new, salt);
+if (new == NULL)
+{
+return (NULL);
+}
+}
+}
+}
+new = _strcat(new, salt);
+if (new == NULL)
+{
+return (NULL);
+}
+return (new);
 }
 
 /**
- * strtow - function that splits string into words
- * @str: string being passed
- * Return: null if string is empty or null or function fails
+ * _strcat - concatenates two strings
+ * @dest: input parameter string
+ * @src: input parameter string
+ *
+ * Return: dest
  */
-char **strtow(char *str)
+char *_strcat(char *dest, char *src)
 {
-int total_words = 0, b = 0, c = 0, length = 0;
-char **words, *found_word;
+int a;
+int b;
 
-if (str == 0 || *str == 0)
-return (NULL);
-total_words = number(str);
-if (total_words == 0)
-return (NULL);
-words = malloc((total_words + 1) * sizeof(char *));
-if (words == 0)
-return (NULL);
-for (; *str != '\0' &&  b < total_words;)
+a = 0;
+
+while (dest[a] != 0)
 {
-if (*str == ' ')
-str++;
-else
+a++;
+}
+
+b = 0;
+
+while (src[b] != 0)
 {
-found_word = str;
-for (; *str != ' ' && *str != '\0';)
-{
-length++;
-str++;
+dest[a] = src[b];
+a++;
+b++;
 }
-words[b] = malloc((length + 1) * sizeof(char));
-if (words[b] == 0)
-{
-free_everything(words, b);
-return (NULL);
-}
-while (*found_word != ' ' && *found_word != '\0')
-{
-words[b][c] = *found_word;
-found_word++;
-c++;
-}
-words[b][c] = '\0';
-b++; c = 0; length = 0; str++;
-}
-}
-return (words);
+return (dest);
 
 }
