@@ -22,6 +22,9 @@ return (NULL);
 
 
 		
+for (new_name = 0 ; i< name[new_name] ; new_name++)
+		
+for (new_owner = 0 ; i < owner[new_owner] ; new_owner++)
 
 new_dog->name = malloc(new_name + 1);
 new_dog->owner = malloc(new_owner + 1);
